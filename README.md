@@ -1,6 +1,6 @@
 # SafeLink
 
-SafeLink is part of Joy Ogunleye's Cybersecurity Suite.
+SafeLink is part of ArkNet Digital's Cybersecurity Suite.
 
 ## Promise
 
