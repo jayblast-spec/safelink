@@ -3,7 +3,7 @@ const TOOLS = [
   { name: "PortGuard", description: "Exposed port & device scanner", live: true, url: "https://portguard-six.vercel.app" },
   { name: "SafeLink", description: "Link & file safety checker", live: true, url: "https://safelink-wheat.vercel.app" },
   { name: "SubnetPilot", description: "Subnet & CIDR calculator", live: true, url: "https://subnetpilot.vercel.app" },
-  { name: "ThreatPulse", description: "Latest vulnerability feed", live: false, url: null },
+  { name: "ThreatPulse", description: "Latest vulnerability feed", live: true, url: "https://threatpulse-six.vercel.app" },
 ];
 
 export default function CrossPromoFooter() {
