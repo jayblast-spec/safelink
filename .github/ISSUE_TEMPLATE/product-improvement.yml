@@ -1,0 +1,19 @@
+name: Product improvement
+description: Suggest a product, UX, integration, or commercial-quality improvement
+title: "Improve: "
+labels: ["enhancement", "contributor-ready"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Tie the suggestion to a real user, workflow, or business outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the change and how it raises product quality.
+    validations:
+      required: true
