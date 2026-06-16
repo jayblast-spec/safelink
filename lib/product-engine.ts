@@ -1,69 +1,95 @@
 export type IntelligenceInput = { input?: string };
-
 const product = {
   "repo": "SafeLink",
-  "suite": "Cybersecurity Suite",
-  "category": "Link intelligence",
-  "audience": "SOC analysts, creators, teams, and families",
-  "promise": "inspect links, redirects, and social-engineering signals before anyone clicks",
-  "inputLabel": "Suspicious URL or message",
-  "placeholder": "https://example-login-check.com/reset?token=...",
-  "primary": "Analyze link",
-  "gradient": "from-lime-300 via-teal-300 to-cyan-400",
-  "modules": [
-    "Redirect chain review",
-    "Phishing language detection",
-    "Domain age signals",
-    "Attachment warning layer",
-    "Shareable safety verdict"
+  "title": "SafeLink",
+  "eyebrow": "ArkNet Digital / Cybersecurity Suite",
+  "theme": "from-lime-300 via-teal-300 to-cyan-400",
+  "hero": "Inspect suspicious links before trust becomes the attack surface.",
+  "sub": "SafeLink gives teams a calm, explainable safe-click cockpit for suspicious URLs, redirect chains, phishing language, and user-facing warnings.",
+  "input": "https://example-login-check.com/reset?token=... or pasted suspicious message",
+  "cta": "Inspect link",
+  "scoreLabel": "Link risk",
+  "panels": [
+    [
+      "Redirect story",
+      "Explain the path a user would take before they click."
+    ],
+    [
+      "Phishing language",
+      "Detect urgency, impersonation, credential prompts, and payment pressure."
+    ],
+    [
+      "Domain trust hints",
+      "Surface domain age, typo patterns, and suspicious structure."
+    ],
+    [
+      "Safe response",
+      "Generate a plain-language warning for the recipient."
+    ]
   ],
-  "outputs": [
-    "Verdict and confidence",
-    "Why it looks risky",
-    "Safe next action",
-    "User-facing warning copy"
+  "rows": [
+    [
+      "Login clone",
+      "Credential capture",
+      "High",
+      "Warn user and report domain to security team."
+    ],
+    [
+      "Shortened URL",
+      "Hidden destination",
+      "Medium",
+      "Expand and inspect before allowing."
+    ],
+    [
+      "QR campaign",
+      "Mobile phishing",
+      "High",
+      "Add mobile-safe preview and training note."
+    ],
+    [
+      "Invoice lure",
+      "Payment fraud",
+      "Critical",
+      "Verify by trusted channel before action."
+    ]
   ],
-  "next": [
-    "URLhaus and Safe Browsing connectors",
-    "QR-code risk analysis",
-    "mailbox plugin",
-    "family/team safe-click policy"
-  ]
+  "missions": [
+    [
+      "URLhaus connector",
+      "Check known malicious URLs and malware campaigns."
+    ],
+    [
+      "Safe Browsing support",
+      "Add optional provider-backed reputation checks."
+    ],
+    [
+      "QR decoder",
+      "Extract and inspect QR destinations safely."
+    ],
+    [
+      "Email plugin",
+      "Bring SafeLink into mailbox review workflows."
+    ]
+  ],
+  "apiExtra": "SafeLink should provide defensive guidance and warnings, not automate abuse or bypass controls."
 } as const;
-
-function score(text: string) {
-  const length = text.trim().length;
-  const diversity = new Set(text.toLowerCase().replace(/[^a-z0-9 ]/g, '').split(/\s+/).filter(Boolean)).size;
-  return Math.min(97, 48 + Math.floor(length / 7) + Math.min(28, diversity));
-}
-
+function scoreFor(subject: string) { let score = 58 + Math.min(28, Math.floor(subject.length / 5)); if (/admin|rdp|database|credential|prod|public|critical|cve|phishing/i.test(subject)) score += 9; return Math.min(98, score); }
+function severity(score: number) { return score >= 88 ? 'critical' : score >= 74 ? 'high' : score >= 61 ? 'medium' : 'low'; }
 export function generateIntelligence({ input = '' }: IntelligenceInput) {
-  const subject = input.trim() || product.placeholder;
-  const confidence = score(subject);
-  const urgency = confidence > 82 ? 'high' : confidence > 66 ? 'medium' : 'starter';
+  const subject = input.trim() || product.input;
+  const score = scoreFor(subject);
   return {
-    product: product.repo,
-    category: product.category,
+    product: product.title,
+    brand: 'ArkNet Digital',
+    category: product.hero,
     subject,
-    confidence,
-    urgency,
-    executive_summary: product.promise,
-    immediate_outputs: product.outputs.map((output, index) => ({
-      title: output,
-      detail: output + ' for: ' + subject,
-      priority: index === 0 ? 'primary' : index === 1 ? 'supporting' : 'next'
-    })),
-    automation_plan: product.modules.map((module, index) => ({
-      stage: index + 1,
-      module,
-      value: 'Automate ' + module.toLowerCase() + ' so ' + product.audience + ' can move faster with less manual work.'
-    })),
-    future_addons: product.next.map((addon, index) => ({
-      name: addon,
-      horizon: index < 2 ? 'v2' : 'v3',
-      contributor_lane: index % 2 === 0 ? 'integration' : 'product intelligence'
-    })),
-    contributor_brief: 'Improve ' + product.repo + ' by making ' + product.category.toLowerCase() + ' easier for ' + product.audience + '.',
+    score,
+    severity: severity(score),
+    executive_summary: product.sub,
+    exposure_map: product.panels.map(([label, value]) => ({ label, value, status: score >= 74 ? 'priority' : 'review' })),
+    remediation_queue: product.rows.slice(0, 3).map(([asset, type, risk, note]) => ({ action: asset + ' - ' + type, owner: risk === 'Critical' ? 'Security lead' : 'Blue Team', impact: note })),
+    contributor_lanes: product.missions.map(([lane, mission]) => ({ lane, mission })),
+    defensive_scope: product.apiExtra,
     generated_at: new Date().toISOString()
   };
 }
