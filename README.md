@@ -1,37 +1,42 @@
 # SafeLink
 
-SafeLink is part of ArkNet Digital's Cybersecurity Suite.
+SafeLink is an ArkNet Digital cybersecurity product.
 
 ## Promise
 
-inspect links, redirects, and social-engineering signals before anyone clicks
+Inspect suspicious links before trust becomes the attack surface.
 
-## Built For
+SafeLink gives teams a calm, explainable safe-click cockpit for suspicious URLs, redirect chains, phishing language, and user-facing warnings.
 
-SOC analysts, creators, teams, and families
+## Current v1
 
-## Product Modules
+- Premium defensive cockpit UI
+- Live product-specific intake
+- `POST /api/intelligence`
+- Product-specific scoring and remediation queue
+- Contributor mission lanes
+- Mobile-friendly layout
 
-- Redirect chain review
-- Phishing language detection
-- Domain age signals
-- Attachment warning layer
-- Shareable safety verdict
+## Contributor Missions
 
-## Open Source Direction
+- URLhaus connector: Check known malicious URLs and malware campaigns.
+- Safe Browsing support: Add optional provider-backed reputation checks.
+- QR decoder: Extract and inspect QR destinations safely.
+- Email plugin: Bring SafeLink into mailbox review workflows.
 
-This repo is open to contributors because strong ideas move faster when serious builders can inspect, improve, and extend them. The goal is not secrecy. The goal is speed, quality, and contribution.
+## Defensive Scope
 
-## First Workflow
-
-1. Enter real context.
-2. Generate a useful first output.
-3. Review risk, confidence, or next action.
-4. Save the result into product memory in a future paid workspace.
+SafeLink should provide defensive guidance and warnings, not automate abuse or bypass controls.
 
 ## Run Locally
 
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+
+```bash
+npm run build
 ```
