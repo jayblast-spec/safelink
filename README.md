@@ -57,4 +57,4 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 📄 License
 
-MIT © [Joy Ogunleye](https://github.com/jayblast-spec) · Built with [ArkNet Forge](https://arknet-os.vercel.app)
+MIT © [Joy Ogunleye](https://github.com/jayblast-spec) · [ArkNet.digital](https://arknet.digital)
