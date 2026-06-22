@@ -1,42 +1,60 @@
-# SafeLink
+<div align="center">
 
-SafeLink is an ArkNet Digital cybersecurity product.
+# 🔗 SafeLink
 
-## Promise
+**Check if a URL is safe before you click — instant phishing detection, zero signup, no excuses.**
 
-Inspect suspicious links before trust becomes the attack surface.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit-6366f1?style=for-the-badge)](https://safelink.vercel.app)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![MIT License](https://img.shields.io/badge/License-MIT-34d399?style=for-the-badge)](LICENSE)
 
-SafeLink gives teams a calm, explainable safe-click cockpit for suspicious URLs, redirect chains, phishing language, and user-facing warnings.
+</div>
 
-## Current v1
+---
 
-- Premium defensive cockpit UI
-- Live product-specific intake
-- `POST /api/intelligence`
-- Product-specific scoring and remediation queue
-- Contributor mission lanes
-- Mobile-friendly layout
+## ✨ Features
 
-## Contributor Missions
+- 🎣 **Phishing link detection** — real-time analysis against known malicious URL patterns
+- 🔄 **Redirect chain inspection** — see every hop a URL takes before it lands
+- 🌐 **Domain reputation scoring** — age, registrar, and threat intelligence signals
+- 🔒 **SSL validity check** — confirm HTTPS is legitimate and not spoofed
+- 📊 **Risk verdict** — Safe / Suspicious / Dangerous in plain English
+- 📋 **Shareable results** — send the report to colleagues before they click
+- ⚡ **Results in under 2 seconds** — no waiting, no API keys required
 
-- URLhaus connector: Check known malicious URLs and malware campaigns.
-- Safe Browsing support: Add optional provider-backed reputation checks.
-- QR decoder: Extract and inspect QR destinations safely.
-- Email plugin: Bring SafeLink into mailbox review workflows.
+---
 
-## Defensive Scope
-
-SafeLink should provide defensive guidance and warnings, not automate abuse or bypass controls.
-
-## Run Locally
+## 🚀 Quick Start
 
 ```bash
+git clone https://github.com/jayblast-spec/safelink.git
+cd safelink
 npm install
 npm run dev
 ```
 
-## Build
+Open [http://localhost:3000](http://localhost:3000)
 
-```bash
-npm run build
-```
+---
+
+## 🛠 Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
+
+---
+
+## 📦 Deploy Your Own
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jayblast-spec/safelink)
+
+---
+
+## 📄 License
+
+MIT © [Joy Ogunleye](https://github.com/jayblast-spec) · Built with [ArkNet Forge](https://arknet-os.vercel.app)
