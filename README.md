@@ -57,4 +57,4 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 📄 License
 
-MIT © [ArkNet.digital](https://arknet.digital)
+MIT © [ArkNet.digital](https://www.arknet.digital/vault.html)
