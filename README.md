@@ -32,8 +32,18 @@ SafeLink takes any URL and returns a plain-English risk verdict by tracing its f
 ## How It Works
 
 - Next.js App Router front end (`app/page.tsx`) handles the URL input and renders the verdict.
-- `app/api/url-scan/route.ts` performs the redirect-chain trace and risk scan server-side; `app/api/intelligence/route.ts` layers analysis/summarization on top of the scan result.
-- Styling is Tailwind CSS 4; no account or API key is required to run a scan.
+- `app/api/url-scan/route.ts` submits the URL to VirusTotal's real API (identified by a base64 URL ID) and reads back the multi-engine verdict server-side — no visitor-supplied key needed, the app holds its own.
+- Styling is Tailwind CSS 4.
+
+## Engineering Notes
+
+**The real problem:** a phishing link needs a verdict *before* you click, not after — and running your own malware sandbox per request isn't realistic for a free tool, so the real leverage is aggregating engines that already do this at scale.
+
+**The approach:** `url-scan` submits the target to VirusTotal, which runs it against dozens of antivirus/URL-reputation engines simultaneously, then polls for the completed analysis rather than trusting a possibly-stale cached verdict.
+
+**One real number:** URLs are identified to VirusTotal by a base64-encoded (padding-stripped) form of the URL itself — VirusTotal's own addressing scheme, not an internally invented ID.
+
+**Not handled yet:** with no `VIRUSTOTAL_API_KEY` configured, the endpoint returns `{ unavailable: true }` rather than a fake verdict — and the homepage "intelligence" summary is a decorative layer disconnected from the real scan result.
 
 ## Live
 
