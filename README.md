@@ -7,7 +7,6 @@
 SafeLink checks a URL's redirect chain and social-engineering signals before anyone in your team clicks it, returning a clear verdict instead of raw technical output.
 
 <p>
-  <a href="https://safelink-wheat.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live-Demo-1D4ED8?style=for-the-badge&logo=vercel&logoColor=white"></a>
   <a href="https://github.com/jayblast-spec/safelink"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
@@ -47,7 +46,7 @@ SafeLink takes any URL and returns a plain-English risk verdict by tracing its f
 
 ## Live
 
-Production: **https://safelink-wheat.vercel.app**
+Production: *(demo temporarily offline)*
 
 ## Tech Stack
 
